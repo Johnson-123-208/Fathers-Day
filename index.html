@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Father's Day Dad! 💖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            animation: fadeInDown 1s ease-out;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header .telugu {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out 0.3s both;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff6b9d;
+            font-size: 20px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .task-section {
+            background: rgba(255, 255, 255, 0.95);
+            margin: 20px 10px;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .task-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .task-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .task-title {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .task-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .task-content {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .task-button {
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 157, 0.3);
+            margin: 10px;
+        }
+
+        .task-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
+        }
+
+        .task-button:active {
+            transform: translateY(0);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .photo-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .photo-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .photo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .photo-placeholder {
+            height: 250px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-placeholder::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .photo-caption {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .photo-caption h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .photo-caption p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .final-message {
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            color: white;
+            margin: 40px 10px;
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-message::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .final-message h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-message p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quiz-option {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 15px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .quiz-option:hover {
+            background: #e3f2fd;
+            border-color: #2196f3;
+            transform: translateX(5px);
+        }
+
+        .quiz-option.correct {
+            background: #c8e6c9;
+            border-color: #4caf50;
+        }
+
+        .quiz-option.wrong {
+            background: #ffcdd2;
+            border-color: #f44336;
+        }
+
+        .memory-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            font-size: 1rem;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .memory-input:focus {
+            border-color: #667eea;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .progress-bar {
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 20px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header .telugu {
+                font-size: 1.4rem;
+            }
+            
+            .task-section {
+                margin: 15px 5px;
+                padding: 20px;
+            }
+            
+            .photo-gallery {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .final-message {
+                margin: 20px 5px;
+                padding: 30px 20px;
+            }
+        }
+
+        .celebration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff6b9d;
+            animation: confetti-fall 3s linear infinite;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="floating-hearts">
+                <span class="heart" style="left: 10%; animation-delay: 0s;">💖</span>
+                <span class="heart" style="left: 20%; animation-delay: 1s;">❤️</span>
+                <span class="heart" style="left: 80%; animation-delay: 2s;">💝</span>
+                <span class="heart" style="left: 90%; animation-delay: 3s;">💕</span>
+            </div>
+            <h1>Happy Father's Day Daddy!</h1>
+            <p class="telugu">హ్యాపీ ఫాదర్స్ డే నాన్న! 🎉</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+        </div>
+
+        <!-- Task 1: Math Challenge -->
+        <div class="task-section" id="task1">
+            <div class="task-header">
+                <h2 class="task-title">Task 1: Dad's Math Challenge</h2>
+                
+            </div>
+            <div class="task-content">
+                <p>What's 25 + 75? </p>
+                <p>25 + 75 = ? </p>
+                <div id="mathOptions">
+                    <div class="quiz-option" onclick="checkMath(this, false)">90</div>
+                    <div class="quiz-option" onclick="checkMath(this, true)">100</div>
+                    <div class="quiz-option" onclick="checkMath(this, false)">110</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Task 2: Memory Game -->
+        <div class="task-section hidden" id="task2">
+            <div class="task-header">
+                <h2 class="task-title">Task 2: Share a Memory</h2>
+                <p class="task-subtitle">కార్యం 2: ఒక జ్ఞాపకం పంచుకోండి</p>
+            </div>
+            <div class="task-content">
+                <p>Tell me your favorite memory with Dad:</p>
+                <p>నాన్నతో మీకిష్టమైన జ్ఞాపకం చెప్పండి:</p>
+                <input type="text" class="memory-input" id="memoryInput" placeholder="Type your memory here / ఇక్కడ మీ జ్ఞాపకం రాయండి">
+                <button class="task-button" onclick="submitMemory()">Share Memory / జ్ఞాపకం పంచుకోండి</button>
+            </div>
+        </div>
+
+        <!-- Task 3: Dad Quiz -->
+        <div class="task-section hidden" id="task3">
+            <div class="task-header">
+                <h2 class="task-title">Task 3: Dad's Favorite Things</h2>
+                <p class="task-subtitle">కార్యం 3: నాన్న ఇష్టపడే విషయాలు</p>
+            </div>
+            <div class="task-content">
+                <p>What makes Dad happiest?</p>
+                <p>నాన్నను ఎక్కువగా ఆనందపరిచేది ఏది?</p>
+                <div id="dadQuizOptions">
+                    <div class="quiz-option" onclick="checkDadQuiz(this, false)">Watching TV alone / ఒంటరిగా టీవీ చూడడం</div>
+                    <div class="quiz-option" onclick="checkDadQuiz(this, true)">Spending time with family / కుటుంబంతో సమయం గడపడం</div>
+                    <div class="quiz-option" onclick="checkDadQuiz(this, false)">Working late / ఆలస్యంగా పని చేయడం</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Task 4: Complete the Phrase -->
+        <div class="task-section hidden" id="task4">
+            <div class="task-header">
+                <h2 class="task-title">Task 4: Complete Dad's Saying</h2>
+                <p class="task-subtitle">కార్యం 4: నాన్న మాట పూర్తి చేయండి</p>
+            </div>
+            <div class="task-content">
+                <p>"A good father is one of the most _______ gifts."</p>
+                <p>"మంచి తండ్రి అత్యంత _______ బహుమతుల్లో ఒకటి."</p>
+                <input type="text" class="memory-input" id="phraseInput" placeholder="Fill in the blank / ఖాళీని పూరించండి">
+                <button class="task-button" onclick="checkPhrase()">Submit / సమర్పించండి</button>
+            </div>
+        </div>
+
+        <!-- Photo Gallery -->
+        <div class="task-section hidden" id="photoSection">
+            <div class="task-header">
+                <h2 class="task-title">Beautiful Memories with Daddy</h2>
+                <p class="task-subtitle">నాన్నతో అందమైన జ్ఞాపకాలు</p>
+            </div>
+            <div class="photo-gallery" id="photoGallery">
+                <!-- Photos will be added dynamically -->
+            </div>
+        </div>
+
+        <!-- Final Message -->
+        <div class="final-message hidden" id="finalMessage">
+            <h2>Thank You, Daddy! 💖</h2>
+            <h2>ధన్యవాదాలు నాన్న! 💖</h2>
+            <p>
+                You are not just my father, you are my hero, my guide, and my inspiration. 
+                Thank you for all the sacrifices, love, and wisdom you've shared with me. 
+                Every lesson you taught me has shaped who I am today.
+            </p>
+            <p>
+                మీరు కేవలం నా తండ్రి మాత్రమే కాదు, మీరు నా హీరో, నా మార్గదర్శకుడు మరియు నా ప్రేరణ. 
+                మీరు నాతో పంచుకున్న అన్ని త్యాగాలు, ప్రేమ మరియు జ్ఞానానికి ధన్యవాదాలు. 
+                మీరు నాకు నేర్పిన ప్రతి పాఠం నేను ఈ రోజు ఉన్న వ్యక్తిని రూపొందించింది.
+            </p>
+            <p style="margin-top: 30px; font-size: 1.5rem;">
+                Happy Father's Day! 🎉❤️<br>
+                హ్యాపీ ఫాదర్స్ డే! 🎉❤️
+            </p>
+        </div>
+    </div>
+
+    <div class="celebration" id="celebration"></div>
+
+    <script>
+        let currentTask = 1;
+        const totalTasks = 4;
+        
+        // 📸 PHOTO CONFIGURATION
+        // Add your photos here - just replace the file paths with your actual photo files
+        const photos = [
+            {
+                imagePath: "./photos/photo1.jpg", // 👈 Replace with your photo path
+                title: "Dad's Wisdom",
+                titleTelugu: "నాన్న జ్ఞానం",
+                caption: "Your guidance has been my compass through life's journey.",
+                captionTelugu: "మీ మార్గదర్శకత్వం జీవిత ప్రయాణంలో నా దిక్సూచిగా ఉంది."
+            },
+            {
+                imagePath: "./photos/photo2.jpg", // 👈 Replace with your photo path
+                title: "Childhood Memories",
+                titleTelugu: "బాల్య జ్ఞాపకాలు",
+                caption: "Those precious moments of playing together and learning from you.",
+                captionTelugu: "మీతో కలిసి ఆట ఆడిన మరియు మీ నుండి నేర్చుకున్న అమూల్యమైన క్షణాలు."
+            },
+            {
+                imagePath: "./photos/photo3.jpg", // 👈 Replace with your photo path
+                title: "Dad's Love",
+                titleTelugu: "నాన్న ప్రేమ",
+                caption: "Your unconditional love has been my strength.",
+                captionTelugu: "మీ షరతులు లేని ప్రేమ నా బలంగా ఉంది."
+            },
+            {
+                imagePath: "./photos/photo4.jpg", // 👈 Replace with your photo path
+                title: "Family Time",
+                titleTelugu: "కుటుంబ సమయం",
+                caption: "Creating beautiful memories together as a family.",
+                captionTelugu: "కుటుంబంగా కలిసి అందమైన జ్ఞాపకాలు సృష్టించడం."
+            },
+            {
+                imagePath: "./photos/photo5.jpg", // 👈 Replace with your photo path
+                title: "Dad's Support",
+                titleTelugu: "నాన్న మద్దతు",
+                caption: "Always there when I needed you the most.",
+                captionTelugu: "నాకు అత్యంత అవసరమైనప్పుడు ఎల్లప్పుడూ అక్కడ ఉన్నారు."
+            },
+            {
+                imagePath: "./photos/photo6.jpg", // 👈 Replace with your photo path
+                title: "Life Lessons",
+                titleTelugu: "జీవిత పాఠాలు",
+                caption: "Teaching me values that will last a lifetime.",
+                captionTelugu: "జీవితాంతం కొనసాగే విలువలను నేర్పించడం."
+            },
+            {
+                imagePath: "./photos/photo7.jpg", // 👈 Replace with your photo path
+                title: "Dad's Humor",
+                titleTelugu: "నాన్న హాస్యం",
+                caption: "Your jokes and laughter that brightened every day.",
+                captionTelugu: "ప్రతి రోజును వెలిగించిన మీ జోకులు మరియు నవ్వు."
+            },
+            {
+                imagePath: "./photos/photo8.jpg", // 👈 Replace with your photo path
+                title: "Forever Grateful",
+                titleTelugu: "ఎల్లప్పుడూ కృతజ్ఞత",
+                caption: "Thank you for being the amazing father you are.",
+                captionTelugu: "మీరు అద్భుతమైన తండ్రిగా ఉన్నందుకు ధన్యవాదాలు."
+            }
+        ];
+
+        function updateProgress() {
+            const progress = (currentTask / totalTasks) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function checkMath(option, isCorrect) {
+            const options = document.querySelectorAll('#mathOptions .quiz-option');
+            options.forEach(opt => opt.style.pointerEvents = 'none');
+            
+            if (isCorrect) {
+                option.classList.add('correct');
+                setTimeout(() => {
+                    nextTask();
+                }, 1500);
+            } else {
+                option.classList.add('wrong');
+                setTimeout(() => {
+                    options.forEach(opt => {
+                        opt.style.pointerEvents = 'auto';
+                        opt.classList.remove('wrong');
+                    });
+                }, 1000);
+            }
+        }
+
+        function submitMemory() {
+            const memory = document.getElementById('memoryInput').value.trim();
+            if (memory.length > 0) {
+                alert('Beautiful memory shared! Thank you!\nఅందమైన జ్ఞాపకం పంచుకున్నారు! ధన్యవాదాలు!');
+                nextTask();
+            } else {
+                alert('Please share a memory first!\nదయచేసి మొదట ఒక జ్ఞాపకం పంచుకోండి!');
+            }
+        }
+
+        function checkDadQuiz(option, isCorrect) {
+            const options = document.querySelectorAll('#dadQuizOptions .quiz-option');
+            options.forEach(opt => opt.style.pointerEvents = 'none');
+            
+            if (isCorrect) {
+                option.classList.add('correct');
+                setTimeout(() => {
+                    nextTask();
+                }, 1500);
+            } else {
+                option.classList.add('wrong');
+                setTimeout(() => {
+                    options.forEach(opt => {
+                        opt.style.pointerEvents = 'auto';
+                        opt.classList.remove('wrong');
+                    });
+                }, 1000);
+            }
+        }
+
+        function checkPhrase() {
+            const answer = document.getElementById('phraseInput').value.trim().toLowerCase();
+            const correctAnswers = ['precious', 'valuable', 'important', 'special', 'wonderful', 'amazing'];
+            
+            if (correctAnswers.some(correct => answer.includes(correct))) {
+                alert('Perfect answer! Dad is indeed precious!\nపరిపూర్ణ సమాధానం! నాన్న నిజంగా అమూల్యమైనవారు!');
+                nextTask();
+            } else {
+                alert('Think about how precious Dad is to you!\nనాన్న మీకు ఎంత అమూల్యమైనవారో ఆలోచించండి!');
+            }
+        }
+
+        function nextTask() {
+            document.getElementById(`task${currentTask}`).classList.add('hidden');
+            currentTask++;
+            updateProgress();
+            
+            if (currentTask <= totalTasks) {
+                setTimeout(() => {
+                    document.getElementById(`task${currentTask}`).classList.remove('hidden');
+                }, 500);
+            } else {
+                setTimeout(() => {
+                    showPhotos();
+                }, 500);
+            }
+        }
+
+        function showPhotos() {
+            document.getElementById('photoSection').classList.remove('hidden');
+            const gallery = document.getElementById('photoGallery');
+            
+            photos.forEach((photo, index) => {
+                setTimeout(() => {
+                    const photoCard = document.createElement('div');
+                    photoCard.className = 'photo-card';
+                    photoCard.innerHTML = `
+                        <div class="photo-placeholder">
+                            <img src="${photo.imagePath}" 
+                                alt="${photo.title}" 
+                                style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;" 
+                                onerror="this.parentElement.innerHTML='<div style=\\'display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: white; text-align: center;\\'>📸<br><strong>Photo ${index + 1}</strong><br><small style=\\'margin-top: 10px; font-size: 0.9rem;\\'>Please add ${photo.imagePath}</small></div>'">
+                        </div>
+                        <div class="photo-caption">
+                            <h3>${photo.title}<br><span style="font-size: 1rem; color: #888;">${photo.titleTelugu}</span></h3>
+                            <p>${photo.caption}<br><em style="color: #666;">${photo.captionTelugu}</em></p>
+                        </div>
+                    `;
+                    
+                    gallery.appendChild(photoCard);
+                    
+                    setTimeout(() => {
+                        photoCard.classList.add('visible');
+                    }, 100);
+                    
+                }, index * 600);
+            });
+            
+            setTimeout(() => {
+                showFinalMessage();
+            }, photos.length * 600 + 1000);
+        }
+
+        function showFinalMessage() {
+            document.getElementById('finalMessage').classList.remove('hidden');
+            createCelebration();
+        }
+
+        function createCelebration() {
+            const celebration = document.getElementById('celebration');
+            const colors = ['#ff6b9d', '#c44569', '#667eea', '#764ba2', '#f093fb', '#f5576c'];
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math.random() * 3 + 's';
+                    celebration.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 3000);
+                }, i * 100);
+            }
+        }
+
+        // Initialize
+        updateProgress();
+    </script>
+</body>
+</html>
